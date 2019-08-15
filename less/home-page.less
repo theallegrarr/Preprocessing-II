@@ -1,25 +1,87 @@
+@import './mixins.less';
+@import './variables.less';
+
+.line {
+  .topline();
+}
+
+.header {
+  .flexbox(column);
+  width: @mainwidth;
+  .header.image {
+    .flexbox(row);
+    justify-content: center;
+    align-self: center;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
 .home {
+  .header.text {
+    .flexbox( column );
+    margin-top: 1.5%;
 
-  .content-section {
-    margin: 30px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-   
+    @media @mobileBreakPoint{
+      width: @mainwidth;
+      h2 {
+        margin-left: 3%;
+      }
+    }
     
-    .text-content {
-      width: 48%;
-      padding-right: 1%;
+    p {
+      @media @mobileBreakPoint{
+        .headertext();
+      }
+      .last{
+        .bottomline();
+      }
+    }
+  }
+
+  .inverse-content {
+    margin: 30px 0;
+    .flexbox(space-between);
+
+    @media @mobileBreakPoint{
+      .flexbox(column-reverse);
+      .header.text();
+      width: @mainwidth;
     }
 
     .img-content {
-      width: 48%;
-      padding-left: 1%;
-
-      img {
-        border-radius: 10px;
+      .midimages();
+      @media @mobileBreakPoint{
+        display: none;
       }
+    }
+
+    .img-content2 {
+      display: none;
+      @media @mobileBreakPoint{
+        .midimages();
+      }
+    }
+
+    .text-content {
+      .textcontent();
+    }
+  }
+
+  .content-section {
+    margin: 30px 0;
+    .flexbox(space-between);
+    @media @mobileBreakPoint{
+      .flexbox(column);
+      .header.text();
+    }
+
+    .text-content {
+      .textcontent();
+    }
+
+    .img-content {
+      .midimages();
     }
   }
 
@@ -45,6 +107,10 @@
     img {
       border-radius: 10px;
     }
+
+    @media @mobileBreakPoint{
+      width: @mainwidth;
+    }
   }
 
   .content-pick {
@@ -53,9 +119,36 @@
     display: flex;
     justify-content: space-between;
 
+    @media @mobileBreakPoint {
+      .flexbox(column);
+    }
+    
     .destination {
       width: 30%;
       margin-bottom: 30px;
+      @media @mobileBreakPoint {
+        .flexbox(column);
+        width: @mainwidth;
+        padding: 3%;
+        .centeralign();
+      }
+    
+      .btn {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 6px;
+        @media @mobileBreakPoint {
+          .flexbox(row);
+          .centeralign();
+          background: @eastern-blue;
+        }
+      }
     }
   }
 }// home
+
