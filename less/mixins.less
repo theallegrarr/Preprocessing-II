@@ -49,16 +49,37 @@
       }
 }
 
-.slidein(@from, @to) {
-    @keyframes slidein {
-        from {
-          margin-left: 100%;
-          width: 300%; 
+.sign-up(@bg-color, @hover-color, @text-color, @font-size, @width){
+    background-color: @bg-color;
+        border: none;
+        color: @text-color;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: @font-size;
+        border-radius: 6px;
+        width: @width;
+        &:hover{
+          background-color: @hover-color;
+          color: red;
         }
-      
-        to {
-          margin-left: 0%;
-          width: 100%;
+        @media @mobileBreakPoint {
+          .flexbox(row);
         }
-      }
+}
+
+.button(){
+    background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 6px;
+        @media @mobileBreakPoint {
+          .flexbox(row);
+          .centeralign();
+          background: @eastern-blue;
+        }
 }
