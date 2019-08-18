@@ -1,1 +1,85 @@
 // Mixins in here
+.flexbox( @direction ) {
+    display: flex;
+    flex-direction: @direction;
+}
+
+.bottomline(){
+    border-bottom: 2px dashed lighten(gray, 20%);
+}
+
+.topline(){
+    border-top: 2px dashed lighten(gray, 20%);
+}
+
+.midimages{
+    width: 48%;
+      padding-left: 1%;
+      @media @mobileBreakPoint{
+        width: 90%;
+        .flexbox(column);
+        .centeralign();
+      }
+      
+      img {
+        border-radius: 10px;
+      }
+}
+
+.centeralign(){
+    align-self: center;
+    align-content: center;
+    text-align: left;
+}
+
+.headertext(){
+    width: 90%;
+    text-align: left;
+    margin-left: 3%;
+}
+
+.textcontent(){
+    width: 48%;
+      padding-right: 1%;
+      margin-top: 1%;
+      @media @mobileBreakPoint{
+        width: 100%;
+        .centeralign();
+        .header.text();
+      }
+}
+
+.sign-up(@bg-color, @hover-color, @text-color, @font-size, @width){
+    background-color: @bg-color;
+        border: none;
+        color: @text-color;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: @font-size;
+        border-radius: 6px;
+        width: @width;
+        &:hover{
+          background-color: @hover-color;
+          color: red;
+        }
+        @media @mobileBreakPoint {
+          .flexbox(row);
+        }
+}
+
+.button(){
+    background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 6px;
+        @media @mobileBreakPoint {
+          .flexbox(row);
+          .centeralign();
+          background: @eastern-blue;
+        }
+}
